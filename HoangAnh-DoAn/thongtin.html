@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script>
+         function innit() {
+            var img = "";
+            var user = localStorage.getItem("user");
+            var picture = localStorage.getItem("picture");
+            if (user == null || user == "" || user == undefined) {
+                $("#logggin").html("chưa đăng nhập")
+            }
+            else {
+                $("#information").html("Xin chào: " + user )
+                img = `<img src='../images/${data[0].img}'/>`
+                $("#informat").html(img);
+            }
+        }
+
+        $(document).ready(function () {
+              innit();
+                $.get("http://localhost:3005/getAllProduct", function (data, status) {
+                    displayProduct(data)
+                });
+            });
+           
+    </script>
+</head>
+<body>
+    <h1>Thong tin</h1>
+    <div id="information"></div>
+</body>
+</html>
